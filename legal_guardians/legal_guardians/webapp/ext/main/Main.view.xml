@@ -1,0 +1,54 @@
+<mvc:View 
+    
+    controllerName="com.logaligroup.legalguardians.ext.main.Main"
+    xmlns:table="sap.fe.macros.table"
+    xmlns="sap.m"
+    xmlns:f="sap.f"
+    xmlns:core="sap.ui.core"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:macros="sap.fe.macros"
+    xmlns:html="http://www.w3.org/1999/xhtml"
+>
+    <f:DynamicPage id="Main">
+        <f:title>
+            <f:DynamicPageTitle id="PageTitle">
+                <f:heading>
+                    <Title
+                        id="Title"
+                        text="{i18n>MainTitle}"
+                    />
+                </f:heading>
+            </f:DynamicPageTitle>
+        </f:title>
+        <f:header>
+            <f:DynamicPageHeader id="PageHeader">
+                <macros:FilterBar
+                    id="FilterBar"
+                    metaPath="@com.sap.vocabularies.UI.v1.SelectionFields"
+                />
+            </f:DynamicPageHeader>
+        </f:header>
+        <f:content>
+            <macros:Table
+                id="Table"
+                metaPath="@com.sap.vocabularies.UI.v1.LineItem"
+                filterBar="FilterBar"
+                selectionChange="onSelectionChange"
+            >
+                <macros:actions >
+                    <table:Action 
+                        id="ActionCreate"
+                        press="OnCreate"
+                        text="{i18n>create}"
+                    />
+                    <table:Action 
+                        id="ActionDelete"
+                        press="onDelete"
+                        text="{i18n>delete}"
+                        enabled="false"
+                    />
+                </macros:actions>
+            </macros:Table>
+        </f:content>
+    </f:DynamicPage>
+</mvc:View>

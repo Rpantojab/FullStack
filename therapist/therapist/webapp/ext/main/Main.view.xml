@@ -1,0 +1,38 @@
+<mvc:View
+    xmlns:table="sap.ui.table"
+    controllerName="com.logaligroup.therapist.ext.main.Main"
+    xmlns="sap.m"
+    xmlns:f="sap.f"
+    xmlns:core="sap.ui.core"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:macros="sap.fe.macros"
+    xmlns:html="http://www.w3.org/1999/xhtml"
+>
+    <f:DynamicPage id="page">
+        <f:title>
+            <f:DynamicPageTitle id="Pagetitle">
+                <f:heading>
+                    <Title
+                        id="title"
+                        text="{i18n>appTitle}"
+                    />
+                </f:heading>
+            </f:DynamicPageTitle>
+        </f:title>
+        <f:header>
+            <f:DynamicPageHeader id="PageHeader">
+                <macros:FilterBar
+                    id="filter"
+                    metaPath="@com.sap.vocabularies.UI.v1.SelectionFields"
+                />
+            </f:DynamicPageHeader>
+        </f:header>
+        <f:content>
+            <macros:Table
+                id="table"
+                filterBar="filter"
+                metaPath="@com.sap.vocabularies.UI.v1.LineItem"
+            />
+        </f:content>
+    </f:DynamicPage>
+</mvc:View>

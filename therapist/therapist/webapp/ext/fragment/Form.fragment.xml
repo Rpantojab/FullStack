@@ -1,0 +1,98 @@
+<core:FragmentDefinition xmlns:odata="sap.ui.comp.odata"
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+    xmlns:form="sap.ui.layout.form"
+    id="fragmentDefinition"
+>
+    <Dialog
+        id="form"
+        title="{i18n>createAppointment}"
+    >
+        <form:SimpleForm id="simpleform">
+            <form:content>
+                <Label
+                    id="formlabelPatient"
+                    text="{i18n>patient}"
+                    required="true"
+                />
+                <ComboBox
+                    id="comboPatient"
+                    items="{/PatientsSet}"
+                    selectedKey="{form>/patient_ID}"
+                >
+                    <core:Item
+                        id="idItem"
+                        key="{ID}"
+                        text="{fullName}"
+                    />
+                </ComboBox>
+
+                <Label
+                    id="labelAppointmet"
+                    text="{i18n>typeAppointment}"
+                    required="true"
+                />
+                <ComboBox
+                    id="comboAppointmet"
+                    items="{/VH_TypesAppointments}"
+                    selectedKey="{form>/typeAppointment_ID}"
+
+                >
+                    <core:Item
+                        id="idItemAppointmet"
+                        key="{ID}"
+                        text="{type}"
+                        
+                    />
+                </ComboBox>
+                <Label id="titleForm" text="{i18n>title}" required="true"/>
+                <Input id="inputTitle" value="{form>/title}" />
+
+                <Label id="description" text="{i18n>description}" required="false"/>
+                <TextArea id="textDescr" value="{form>/description}" />
+
+                <Label id="beginDate" text="{i18n>beginDate}" required="true"/>
+                <DatePicker id="dateBeginDate" value="{form>/beginDate}"  displayFormat="yyyy-MM-dd" valueFormat="yyyy-MM-dd" change="onChangeBeginDate"/>
+
+                <Label id="endDate" text="{i18n>endDate}" required="true"/>
+                <DatePicker id="dateEndDate" value="{form>/endDate}" enabled="false" />
+
+                <Label id="block" text="{i18n>block}" required="true"/>
+                <ComboBox id="comboBlock" 
+                    items="{/VH_Blocks}" 
+                    selectedKey="{form>/block_ID}"
+                    showSecondaryValues="true" 
+                    change="onChangeBlock" >
+                    <core:ListItem id="ListId" key="{ID}" text="{block}" additionalText="{timeText}"/>
+                </ComboBox>
+
+                <Label id="beginTime" text="{i18n>beginTime}" required="true"/>
+                <Input id="inpBeginTime" value="{form>/beginTime}" enabled="false" />
+
+                <Label id="endTime" text="{i18n>endTime}" required="true"/>
+                <Input id="inpendTime" value="{form>/endTime}" enabled="false" />
+
+            </form:content>
+        </form:SimpleForm>
+        <beginButton>
+            <Button
+                id="creteform"
+                text="{i18n>create}"
+                tooltip="{i18n>create}"
+                type="Emphasized"
+                width="6rem"
+                press="onCreateForm"
+            />
+        </beginButton>
+        <endButton>
+            <Button
+                id="cancelform"
+                text="{i18n>cancel}"
+                tooltip="{i18n>cancel}"
+                type="Negative"
+                width="6rem"
+                press="onDialogClose"
+            />
+        </endButton>
+    </Dialog>
+</core:FragmentDefinition>

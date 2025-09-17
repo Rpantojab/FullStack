@@ -1,0 +1,29 @@
+{
+  "generationParameters": {
+    "generationDate": "Tue Sep 09 2025 20:42:59 GMT+0000 (Coordinated Universal Time)",
+    "generatorPlatform": "SAP Business Application Studio",
+    "serviceType": "SAP System (ABAP On-Premise)",
+    "metadataFilename": "",
+    "serviceUrl": "http://159.65.96.144:8001/odata/v4/logali-group/",
+    "appName": "therapist",
+    "appTitle": "Therapist",
+    "appDescription": "Therapist",
+    "appNamespace": "com.logaligroup",
+    "ui5Theme": "sap_horizon",
+    "ui5Version": "1.140.0",
+    "enableCodeAssist": true,
+    "enableEslint": true,
+    "enableTypeScript": true,
+    "showMockDataInfo": true,
+    "generatorVersion": "1.18.6",
+    "template": "Custom Page V4",
+    "generatorName": "SAP Fiori Application Generator",
+    "entityRelatedConfig": [
+      {
+        "type": "Main Entity",
+        "value": "TherapistsSet"
+      }
+    ],
+    "launchText": "To launch the generated application, run the following from the generated application root folder:\n\n```\n    npm start\n```"
+  }
+}

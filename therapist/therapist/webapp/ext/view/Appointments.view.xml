@@ -1,0 +1,42 @@
+<mvc:View
+    controllerName="com.logaligroup.therapist.ext.view.Appointments"
+    xmlns:core="sap.ui.core"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:macros="sap.fe.macros"
+    xmlns:uxap="sap.uxap"
+>
+    <uxap:ObjectPageLayout id="Appointments">
+        <uxap:headerTitle>
+            <uxap:ObjectPageDynamicHeaderTitle id="ObjectPageHeader">
+                <uxap:expandedHeading>
+                    <Title
+                        id="pageTitle"
+                        text="{patient/fullName}"
+                    />
+                </uxap:expandedHeading>
+                <uxap:expandedContent>
+                    <Text
+                        id="status"
+                        text="{status/name}"
+                    />
+                </uxap:expandedContent>
+            </uxap:ObjectPageDynamicHeaderTitle>
+        </uxap:headerTitle>
+
+        <uxap:sections>
+            <uxap:ObjectPageSection id="ObjectPageSection" title="{i18n>appointmentSchedule}">
+                <uxap:subSections>
+                    <uxap:ObjectPageSubSection id="ObjectPageSubSection">
+                        <uxap:blocks>
+                            <macros:Form
+                                id="appointmentsForm"
+                                metaPath="@com.sap.vocabularies.UI.v1.FieldGroup#Patients"
+                            />
+                        </uxap:blocks>
+                    </uxap:ObjectPageSubSection>
+                </uxap:subSections>
+            </uxap:ObjectPageSection>
+        </uxap:sections>
+    </uxap:ObjectPageLayout>
+</mvc:View>

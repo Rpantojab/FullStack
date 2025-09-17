@@ -1,0 +1,29 @@
+{
+  "generationParameters": {
+    "generationDate": "Fri Aug 29 2025 16:12:01 GMT+0000 (Coordinated Universal Time)",
+    "generatorPlatform": "SAP Business Application Studio",
+    "serviceType": "SAP System (ABAP On-Premise)",
+    "metadataFilename": "",
+    "serviceUrl": "http://159.65.96.144:8001/odata/v4/logali-group/",
+    "appName": "legal_guardians",
+    "appTitle": "Legal Guardians",
+    "appDescription": "Legal Guardians",
+    "appNamespace": "com.logaligroup",
+    "ui5Theme": "sap_horizon",
+    "ui5Version": "1.139.0",
+    "enableCodeAssist": true,
+    "enableEslint": true,
+    "enableTypeScript": true,
+    "showMockDataInfo": true,
+    "generatorVersion": "1.18.5",
+    "template": "Custom Page V4",
+    "generatorName": "SAP Fiori Application Generator",
+    "entityRelatedConfig": [
+      {
+        "type": "Main Entity",
+        "value": "LegalGuardiansSet"
+      }
+    ],
+    "launchText": "To launch the generated application, run the following from the generated application root folder:\n\n```\n    npm start\n```"
+  }
+}

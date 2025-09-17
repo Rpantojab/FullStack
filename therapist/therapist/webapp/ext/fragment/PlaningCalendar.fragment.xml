@@ -1,0 +1,64 @@
+<core:FragmentDefinition
+    xmlns:unified="sap.ui.unified"
+    xmlns:core="sap.ui.core"
+    xmlns="sap.m"
+    xmlns:macros="sap.fe.macros"
+>
+    <VBox
+        id="vboxfrag"
+        core:require="{ formatter: 'com/logaligroup/therapist/ext/fragment/PlaningCalendar'}"
+    >
+        <SinglePlanningCalendar
+            id="PlaningCalendar"
+            startHour="8"
+            endHour="18"
+            scaleFactor="0.5"
+            appointments="{toAppointments}"
+            enableAppointmentsDragAndDrop="{= ${IsActiveEntity} === true? false : true}"
+            appointmentSelect=".extension.com.logaligroup.therapist.ext.controller.ObjectPage.onNavToAppointments"
+            appointmentDrop=".extension.com.logaligroup.therapist.ext.controller.ObjectPage.onAppointmentDrop"
+        >
+            <views>
+                <SinglePlanningCalendarDayView
+                    id="day"
+                    key="day"
+                    title="{i18n>day}"
+                />
+                <SinglePlanningCalendarWeekView
+                    id="week"
+                    key="week"
+                    title="{i18n>week}"
+                />
+                <SinglePlanningCalendarMonthView
+                    id="month"
+                    key="month"
+                    title="{i18n>month}"
+                />
+            </views>
+            <actions>
+            <Button id="createAppointment"
+             text="{i18n>createAppointment}"
+             tooltip="{i18n>createAppointment}"
+             type="Emphasized"
+             visible="{=${IsActiveEntity} === true? false : true}"
+             press=".extension.com.logaligroup.therapist.ext.controller.ObjectPage.onOpenForm"
+            />
+
+            </actions>
+            <appointments>
+                <unified:CalendarAppointment
+                    id="appointment"
+                    key="{block_ID}"
+                    title="{title}"
+                    description="{description}"
+                    startDate="{startDate}"
+                    endDate="{endDate2}"
+                    type="{
+                       path: 'status_code',
+                       formatter: 'formatter.status'
+                    }"
+                />
+            </appointments>
+        </SinglePlanningCalendar>
+    </VBox>
+</core:FragmentDefinition>

@@ -1,0 +1,155 @@
+<mvc:View
+    controllerName="com.logaligroup.legalguardians.ext.view.Details"
+    xmlns:core="sap.ui.core"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:macros="sap.fe.macros"
+    xmlns:uxap="sap.uxap"
+    xmlns:html="http://www.w3.org/1999/xhtml"
+    modelContextChange="onModelContextChange"
+>
+    <uxap:ObjectPageLayout id="Details" showFooter="{=!${IsActiveEntity}}">
+        <uxap:headerTitle>
+            <uxap:ObjectPageDynamicHeaderTitle id="HeaderTitle">
+                <uxap:expandedHeading>
+                    <Title
+                        id="TitleHeading"
+                        text="{fullName}"
+                    />
+                </uxap:expandedHeading>
+                <uxap:expandedContent>
+                    <Text
+                        id="TextHEading"
+                        text="{numberDocument}"
+                    />
+                </uxap:expandedContent>
+
+<uxap:actions>
+                    <Button
+                        id="IdEdit"
+                        press="onEdit"
+                        text="{i18n>edit}"
+                        visible="{=${IsActiveEntity}}"
+                        type="Emphasized"
+                        class="SapUiSmallMarginEnd"
+                    />
+                    <Button
+                        id="IdDelete"
+                        press="onDelete"
+                        text="{i18n>delete}"
+                    />
+                </uxap:actions>
+
+            </uxap:ObjectPageDynamicHeaderTitle>
+        </uxap:headerTitle>
+        <uxap:sections>
+            <uxap:ObjectPageSection
+                id="PageSectionA"
+                title="{i18n>generalInformation}"
+            >
+                <uxap:subSections>
+                    <uxap:ObjectPageSubSection
+                        id="PageSubSection"
+                        title="{i18n>personalInformation}"
+                    >
+                        <uxap:blocks>
+                            <macros:Form
+                                id="FormPersonalInformation"
+                                metaPath="@com.sap.vocabularies.UI.v1.FieldGroup"
+                            />
+                        </uxap:blocks>
+                    </uxap:ObjectPageSubSection>
+
+                    <uxap:ObjectPageSubSection
+                        id="PageSubSectionB"
+                        title="{i18n>addressInformation}"
+                    >
+                        <uxap:blocks>
+                            <macros:Form
+                                id="FormAddressInformation"
+                                metaPath="address/@UI.FieldGroup#AddressInformation"
+                            />
+                        </uxap:blocks>
+                    </uxap:ObjectPageSubSection>
+
+                    <uxap:ObjectPageSubSection
+                        id="PageSubSectionC"
+                        title="{i18n>contactInformation}"
+                    >
+                        <uxap:blocks>
+                            <macros:Form
+                                id="FormContactInformation"
+                                metaPath="contact/@UI.FieldGroup#ContactInformation"
+                            />
+                        </uxap:blocks>
+                    </uxap:ObjectPageSubSection>
+                </uxap:subSections>
+            </uxap:ObjectPageSection>
+
+            <uxap:ObjectPageSection
+                id="PageSectionD"
+                title="{i18n>emergencyConctact}"
+            >
+                <uxap:subSections>
+                    <uxap:ObjectPageSubSection id="PageSubSectionD">
+                        <uxap:blocks>
+                            <macros:Table
+                                id="TableEmergency"
+                                metaPath="toContacts/@UI.LineItem"
+                            />
+                        </uxap:blocks>
+                    </uxap:ObjectPageSubSection>
+                </uxap:subSections>
+            </uxap:ObjectPageSection>
+            <uxap:ObjectPageSection
+                id="PageSectionE"
+                title="{i18n>patients}"
+            >
+                <uxap:subSections>
+                    <uxap:ObjectPageSubSection id="PageSubSectionE">
+                        <uxap:blocks>
+                            <macros:Table
+                                id="TablePatients"
+                                metaPath="toPatients/@UI.LineItem"
+                            />
+                        </uxap:blocks>
+                    </uxap:ObjectPageSubSection>
+                </uxap:subSections>
+            </uxap:ObjectPageSection>
+        </uxap:sections>
+        <uxap:ObjectPageSection
+            id="PageSectionF"
+            title="{i18n>attachments}"
+        >
+            <uxap:subSections>
+                <uxap:ObjectPageSubSection id="PageSubSectionF">
+                    <uxap:blocks>
+                        <macros:Table
+                            id="TableAttachments"
+                            metaPath="attachments/@UI.LineItem"
+                        />
+                    </uxap:blocks>
+                </uxap:ObjectPageSubSection>
+            </uxap:subSections>
+        </uxap:ObjectPageSection>
+
+        <uxap:footer>
+            <Toolbar id="IdfooterTool">
+                <ToolbarSpacer id="IdToolSpa" />
+                <Button
+                    id="IdSave"
+                    press="onSave"
+                    text="{i18n>save}"
+                    type="Emphasized"
+                    class="SapUiSmallMarginEnd"
+                />
+                <Button
+                    id="IdCancel"
+                    press="onCancel"
+                    text="{i18n>cancel}"
+                />
+            </Toolbar>
+        </uxap:footer>
+
+    </uxap:ObjectPageLayout>
+</mvc:View>
